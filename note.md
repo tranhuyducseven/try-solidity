@@ -25,3 +25,8 @@ These modifiers can all be stacked together on a function definition as follows:
 ```sol
 function test() external view onlyOwner anotherModifier { /* ... */ }
 ```
+
+
+## Indexed keyword
+When an event parameter is marked as indexed, it means that its value will be included in the event's topic hash, which allows for more efficient event filtering and searching. This is particularly useful when you want to retrieve specific events that match certain criteria without having to parse all events emitted by a contract.
+
