@@ -1,0 +1,52 @@
+name: Sync main repo to deployed repo
+
+on:
+  push:
+    branches: [ main ]
+    
+env:
+  ORIGINAL_REPO: github.com/DV-Lab/zuni-frontend2
+  DEPLOYED_REPO: github.com/tranhuyducseven/wearedvlab.zuni
+  USERNAME: tranhuyducseven
+  EMAIL:  tranhuyducseven@gmail.com
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+      with:
+        token: ${{ secrets.SUPER_ACCESS_TOKEN }}
+    - name: Clone repo       
+      run : |
+          echo "[LOG] Clone origin and temp repo"
+          echo "Clone ${{ env.ORIGINAL_REPO }} &&  ${{ env.DEPLOYED_REPO }}"
+          git clone  https://${{ secrets.SUPER_ACCESS_TOKEN }}@${{ env.ORIGINAL_REPO }}.git origin
+          git clone  https://${{ secrets.SUPER_ACCESS_TOKEN }}@${{ env.DEPLOYED_REPO }}.git temp
+
+    - name: Copy files       
+      run : |
+          echo "[LOG] Copying all origin files to temp"
+          cp -r origin/** temp
+          rm -rf temp/.github
+
+    - name: Push and commit       
+      run : |
+          echo "[LOG] Setup global config" 
+          git config --global user.email "${{ env.EMAIL }}"
+          git config --global user.name "${{ env.USERNAME }}-bot"
+          git remote set-url origin https://x-access-token:${{ secrets.SUPER_ACCESS_TOKEN }}@${{ env.DEPLOYED_REPO }}
+          cd temp
+          echo "[LOG] Git add and commit"
+          git add .
+          git commit -m "Synchronize from private repository - Triggered by Github Workflows"
+          echo "[LOG] Git push"
+          git push
+
+    - name: Remove temp folder       
+      run : |
+          echo "[LOG] Clear temp folder" 
+          rm -rf temp
+          rm -rf origin
+          ls -al
+            

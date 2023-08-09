@@ -1,0 +1,9 @@
+li.item {
+  width: 100%;
+  display: flex;
+  padding: 16px 32px;
+  justify-content: space-between;
+  align-items: center;
+  align-self: stretch;
+  cursor: pointer;
+}

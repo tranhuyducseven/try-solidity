@@ -1,0 +1,235 @@
+.file1 {
+  width: 194px;
+  height: 240px;
+  background-image: url(/icons/file_1.png);
+  background-size: cover;
+  background-position: center;
+}
+
+.file2 {
+  width: 194px;
+  height: 240px;
+  background-image: url(/icons/file_2.png);
+  background-size: cover;
+  background-position: center;
+}
+
+.file3 {
+  width: 393px;
+  height: 442px;
+  flex-shrink: 0;
+  background: url(/icons/file_3.png);
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  transform: rotate(9.657deg);
+}
+
+.file5 {
+  width: 393px;
+  height: 442px;
+  flex-shrink: 0;
+  background: url(/icons/file_5.png);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  -webkit-transform: scaleX(-1);
+  transform: scaleX(-1);
+}
+
+.form {
+  border-radius: 30px;
+  backdrop-filter: blur(25px);
+  -webkit-backdrop-filter: blur(25px);
+  font-family: Manrope;
+  .label {
+    color: #000;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 32px;
+  }
+  input,
+  select,
+  option,
+  textarea {
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.9);
+    color: "#555";
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 10px 20px;
+    border: 1px dashed #adadad;
+    &:focus-visible {
+      border: none !important;
+      outline: 2px solid #3cd89d;
+    }
+
+    /* Body_PC */
+    font-size: 20px;
+    font-family: Manrope;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px;
+  }
+
+  select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    -webkit-user-select: none;
+    background-image: url(/icons/chevron-down.svg);
+    background-position: 98% 50%;
+    background-repeat: no-repeat;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    cursor: pointer;
+  }
+}
+
+.heading {
+  color: #000;
+
+  /* Title 2_PC */
+  font-size: 32px;
+  font-family: Manrope;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 35.815px;
+}
+.subheading {
+  color: #000;
+  /* Body_PC */
+  font-size: 20px;
+  font-family: Manrope;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 24px;
+}
+
+
+
+
+.items{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.items li{
+  position: absolute;
+  display: block;
+  list-style: none;
+  width: 20px;
+  height: 20px;
+  background: rgba(0, 0, 0, 1);
+  animation: fly 25s linear infinite;
+  bottom: -150px;
+  
+}
+
+.items li:nth-child(1){
+  left: 25%;
+  width: 80px;
+  height: 80px;
+  background: #3CD89D;
+  animation-delay: 0s;
+}
+
+
+.items li:nth-child(2){
+  left: 10%;
+  width: 20px;
+  height: 20px;
+  background: #FF6161;
+  animation-delay: 2s;
+  animation-duration: 12s;
+}
+
+.items li:nth-child(3){
+  left: 70%;
+  width: 20px;
+  height: 20px;
+  animation-delay: 4s;
+}
+
+.items li:nth-child(4){
+  left: 40%;
+  width: 60px;
+  height: 60px;
+  background: #A6FEFF;
+  animation-delay: 0s;
+  animation-duration: 18s;
+}
+
+.items li:nth-child(5){
+  left: 65%;
+  width: 20px;
+  height: 20px;
+  background: #9747FF;
+  animation-delay: 0s;
+}
+
+.items li:nth-child(6){
+  left: 75%;
+  width: 110px;
+  height: 110px;
+  background: #FFED47;
+  animation-delay: 3s;
+}
+
+.items li:nth-child(7){
+  left: 35%;
+  width: 150px;
+  height: 150px;
+  background: #FF8947;
+  animation-delay: 7s;
+}
+
+.items li:nth-child(8){
+  left: 50%;
+  width: 25px;
+  height: 25px;
+  background: #F11F1F;
+  animation-delay: 15s;
+  animation-duration: 45s;
+}
+
+.items li:nth-child(9){
+  left: 20%;
+  width: 15px;
+  height: 15px;
+  background: #275BE2;
+  animation-delay: 2s;
+  animation-duration: 35s;
+}
+
+.items li:nth-child(10){
+  left: 85%;
+  width: 150px;
+  height: 150px;
+  background: #E027AC;
+  animation-delay: 0s;
+  animation-duration: 11s;
+}
+
+
+
+@keyframes fly {
+
+  0%{
+      transform: translateY(0) rotate(0deg);
+      opacity: 1;
+      border-radius: 0;
+  }
+
+  100%{
+      transform: translateY(-1000px) rotate(720deg);
+      opacity: 0;
+      border-radius: 50%;
+  }
+
+}

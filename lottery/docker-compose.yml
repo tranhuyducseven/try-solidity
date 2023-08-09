@@ -1,0 +1,13 @@
+version: "3.5"
+services:
+  zuni-frontend2:
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    image: 'ghcr.io/dv-lab/zuni-frontend2:latest'
+    container_name: zuni-frontend2
+    ports:
+      - 3000:3000
+    volumes:
+      - .env:/app/.env.production
+    restart: always
